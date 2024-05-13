@@ -35,7 +35,7 @@ def SignUp(request):
     send_mail(
         'OTP to verify your account!',
         f'Your OTP to verify your account is {OTP}\nPlease Do not share OTP with anyone else...',
-        'tahabadboy98@gmail.com',
+        'yourEmail',
         [email],
         fail_silently=False
     )
