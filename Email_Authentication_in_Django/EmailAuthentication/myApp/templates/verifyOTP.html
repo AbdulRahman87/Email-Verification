@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| Email Verification |</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="shadow p-5 border-lg rounded bg-success text-light">Validate the OTP</h1>
+        {% if msg %}
+            <h3 class="text-center text-danger">{{msg}}</h3>
+        {% endif %}
+        <form action='{% url "validateOTP" %}' class="my-5" method="post"> {% csrf_token %}
+           <input type="number" placeholder="Enter the OTP" name="otp" id="otp" class="text-center form-control my-3">
+           <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+    </div>
+</body>
+</html>

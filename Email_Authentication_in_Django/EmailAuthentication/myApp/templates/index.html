@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| Email Verification |</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="shadow p-5 border-lg rounded bg-primary text-light my-2">SignUp</h1>
+
+        {% if msg %}
+            <h3 class="text-center text-danger">{{msg}}</h3>
+        {% endif %}
+
+        <form action='{% url "signup" %}' class="my-5" method="post"> {% csrf_token %}
+           <input type="text" placeholder="Enter your user name" name="uname" id="uname" class="form-control my-3 text-center">
+           <input type="text" placeholder="Enter your first name" name="fname" id="fname" class="form-control my-3 text-center">
+           <input type="text" placeholder="Enter your last name" name="lname" id="lname" class="form-control my-3 text-center">
+           <input type="email" placeholder="Enter your email" name="email" id="email" class="form-control my-3 text-center">
+           <input type="password" placeholder="Enter your password" name="password" id="password" class="form-control my-3 text-center">
+           <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+    </div>
+</body>
+</html>
